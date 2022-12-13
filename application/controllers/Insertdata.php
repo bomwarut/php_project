@@ -11,7 +11,7 @@ class Insertdata extends CI_Controller {
 
 	public function index()
 	{
-        $data['query']=$this->member_model->showdata();
+        $data['query']=$this->member_model->showdata8();
         // echo '<pre>';
         // print_r($data);
         // echo '</pre>';
@@ -19,7 +19,7 @@ class Insertdata extends CI_Controller {
 
         $this->load->view('css');
 		$this->load->view('head');
-		$this->load->view('insert_view');
+		$this->load->view('index2_view');
         $this->load->view('member_view',$data);                                                                                                                                                                                                                                                                                                                                                                                                   
         $this->load->view('js');
 	}
@@ -38,9 +38,23 @@ class Insertdata extends CI_Controller {
         $this->member_model->addmember();
 	}
 
+    public function adding2()
+	{
+        $this->member_model->addmember2();
+        redirect('','refresh');
+	}
+
     public function editdata()
 	{
-         print_r($_POST);
+        //  print_r($_POST);
         $this->member_model->editmember();
+        redirect('','refresh');
+	}
+
+    public function delete($m_id)
+	{
+        //  print_r($_POST);
+        $this->member_model->deletedata($m_id);
+        redirect('','refresh');
 	}
 }
