@@ -25,7 +25,6 @@ class Member_model extends CI_Model {
         $config['max_height'] = '3000';
         $config['encrypt_name'] = TRUE;
         
-
         $this->load->library('upload',$config);
         if(! $this->upload->do_upload('m_img'))
         {
