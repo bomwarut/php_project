@@ -54,8 +54,9 @@ class Member_model extends CI_Model {
 
     public function showdata()
     {
-            $query = $this->db->get('tbl_member');
-            return $query->result();
+            // $query = $this->db->get('tbl_member');
+            $query =" SELECT * FROM tbl_member";
+          return $this->db->query($query)->result();
     }
 
     public function showdata2()
